@@ -467,9 +467,9 @@ Be sure to complete the following before the start of lab:
 
 - Accept (individually) the github classroom assignment
 - Do the Exercises (adding and committing as you go)
-  - [ ] Complete `wrap_contents.sh`
+  - [x] Complete `wrap_contents.sh`
   - [ ] Produce `my_chart.html` with the pie chart
-  - [ ] Create a `git` tag after finishing `wrap_contents.sh`
+  - [x] Create a `git` tag after finishing `wrap_contents.sh`
   - [ ] Implement `regex.sh`
 - Make sure you push your changes up to GitHub.
 - Submit the following to Canvas when you are ready to be graded:

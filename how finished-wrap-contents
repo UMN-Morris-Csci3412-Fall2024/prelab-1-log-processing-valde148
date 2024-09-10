@@ -1,0 +1,82 @@
+[33mtag finished-wrap-contents[m
+Tagger: Armando Valdez <valde148@d.umn.edu>
+Date:   Mon Sep 9 22:41:23 2024 -0500
+
+Completed wrap_contents.sh part of the lab
+
+[33mcommit 25cce0de4255e70277069789993c816fb97fd952[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;33mtag: [m[1;33mfinished-wrap-contents[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Armando Valdez <valde148@d.umn.edu>
+Date:   Mon Sep 9 22:34:47 2024 -0500
+
+    wrap changes
+
+[1mdiff --git a/wrap_contents/chart_example/my_chart.html b/wrap_contents/chart_example/my_chart.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..084a067[m
+[1m--- /dev/null[m
+[1m+++ b/wrap_contents/chart_example/my_chart.html[m
+[36m@@ -0,0 +1,35 @@[m
+[32m+[m[32m<html>[m
+[32m+[m[32m<head>[m
+[32m+[m	[32m<script type='text/javascript' src='https://www.google.com/jsapi'></script>[m
+[32m+[m	[32m<script type='text/javascript'>[m
+[32m+[m	[32mgoogle.load('visualization', '1', {'packages':['corechart']});[m
+[32m+[m
+[32m+[m	[32mgoogle.setOnLoadCallback(drawSandwichDistribution);[m
+[32m+[m
+[32m+[m	[32mfunction drawSandwichDistribution() {[m
+[32m+[m		[32mvar data = new google.visualization.DataTable();[m
+[32m+[m		[32mdata.addColumn('string', 'Sandwich Meats');[m
+[32m+[m		[32mdata.addColumn('number', 'Preference Count');[m
+[32m+[m		[32mdata.addRow(['Bologna', 26]);[m
+[32m+[m		[32mdata.addRow(['Ham', 54]);[m
+[32m+[m		[32mdata.addRow(['Turkey', 34]);[m
+[32m+[m		[32mdata.addRow(['Meatballs', 16]);[m
+[32m+[m		[32mdata.addRow(['Salami', 25]);[m
+[32m+[m		[32mdata.addRow(['Chicken', 32]);[m
+[32m+[m		[32mdata.addRow(['Veggie', 3]);[m
+[32m+[m		[32mdata.addRow(['Cheese', 1]);[m
+[32m+[m		[32mdata.addRow(['Sausage', 6]);[m
+[32m+[m		[32mdata.addRow(['Steak', 2]);[m
+[32m+[m
+[32m+[m		[32mvar chart = new google.visualization.PieChart(document.getElementById('sandwich_dist_div'));[m
+[32m+[m		[32mchart.draw(data, {width: 450, height: 300, title: 'Sandwich meat preferences'});[m
+[32m+[m	[32m}[m
+[32m+[m
+[32m+[m	[32m</script>[m
+[32m+[m[32m</head>[m
+[32m+[m
+[32m+[m[32m<body>[m
+[32m+[m	[32m<h1>Sandwich Meat Preferences</h1>[m
+[32m+[m	[32m<div id='sandwich_dist_div' style='width: 800px; height: 600px;'></div>[m
+[32m+[m[32m</body>[m
+[32m+[m[32m</html>[m
+[1mdiff --git a/wrap_contents/wrap_contents.sh b/wrap_contents/wrap_contents.sh[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mindex e69de29..6f2aa4b[m
+[1m--- a/wrap_contents/wrap_contents.sh[m
+[1m+++ b/wrap_contents/wrap_contents.sh[m
+[36m@@ -0,0 +1,22 @@[m
+[32m+[m[32m#!/bin/bash[m
+[32m+[m
+[32m+[m[32mif [ "$#" -ne 3 ]; then[m
+[32m+[m[32m  echo "$0 content_file specifier output_file"[m
+[32m+[m[32m  exit 1[m
+[32m+[m[32mfi[m
+[32m+[m
+[32m+[m[32mcontent_file=$1[m
+[32m+[m[32mspecifier=$2[m
+[32m+[m[32moutput_file=$3[m
+[32m+[m
+[32m+[m[32mheader_file="${specifier}_header.html"[m
+[32m+[m[32mfooter_file="${specifier}_footer.html"[m
+[32m+[m
+[32m+[m[32mif [ ! -f "$header_file" ] || [ ! -f "$content_file" ] || [ ! -f "$footer_file" ]; then[m
+[32m+[m[32m  echo "Some files don't exist."[m
+[32m+[m[32m  exit 1[m
+[32m+[m[32mfi[m
+[32m+[m
+[32m+[m[32mcat "$header_file" "$content_file" "$footer_file" > "$output_file"[m
+[32m+[m
+[32m+[m[32mecho "Output written to $output_file"[m
