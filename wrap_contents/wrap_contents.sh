@@ -13,7 +13,7 @@ header_file="${specifier}_header.html"
 footer_file="${specifier}_footer.html"
 
 if [ ! -f "$header_file" ] || [ ! -f "$content_file" ] || [ ! -f "$footer_file" ]; then
-  echo "Some files don't exist."
+  echo "Few files don't exist"
   exit 1
 fi
 
